@@ -1,17 +1,17 @@
 extends KinematicBody2D
 
-const ACCELERATION = 500
-const MAX_SPEED = 80
-const ROLL_SPEED = 120
-const FRICTION = 500
+export var ACCELERATION = 500
+export var MAX_SPEED = 80
+export var ROLL_SPEED = 120
+export var FRICTION = 500
 
-enum {
+enum State {
 	MOVE,
 	ROLL,
 	ATTACK,
 }
 
-var state = MOVE
+var state = State.MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.LEFT
 
@@ -27,13 +27,14 @@ func _ready():
 
 func _physics_process(delta):
 	match state:
-		MOVE:
+		
+		State.MOVE:
 			move_state(delta)
 		
-		ROLL:
+		State.ROLL:
 			roll_state(delta)
 		
-		ATTACK:
+		State.ATTACK:
 			attack_state(delta)
 
 
@@ -59,10 +60,10 @@ func move_state(delta):
 	move()
 	
 	if Input.is_action_just_pressed("attack"):
-		state = ATTACK
+		state = State.ATTACK
 	
 	if Input.is_action_just_pressed("roll"):
-		state = ROLL
+		state = State.ROLL
 
 
 func attack_state(_delta):
@@ -81,9 +82,9 @@ func move():
 
 
 func attack_animation_finished():
-	state = MOVE
+	state = State.MOVE
 
 
 func roll_animation_finished():
 	velocity = velocity / 2
-	state = MOVE
+	state = State.MOVE
