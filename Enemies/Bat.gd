@@ -5,6 +5,7 @@ const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
+export var INVINCIBLE = 0.3
 export var WANDER_TARGET_PROXIMITY = 1
 
 enum State {
@@ -25,6 +26,7 @@ onready var hurtbox = $HurtBox
 onready var soft_collision = $SoftCollision
 onready var wander_controller = $WanderController
 onready var thought_bubble = $ThoughtBubble
+onready var animation_player = $AnimationPlayer
 
 func _ready():
 	sprite.frame = rand_range(0, sprite.frames.get_frame_count("Fly"))
@@ -92,6 +94,7 @@ func _on_HurtBox_area_entered(area : Area2D):
 	stats.health -= area.Damage
 	knockback = area.knockback_vector * 120
 	hurtbox.create_hit_effect()
+	hurtbox.start_invincibility(INVINCIBLE)
 
 
 func _on_Stats_no_health():
@@ -99,3 +102,11 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+
+func _on_HurtBox_invincibility_started():
+	animation_player.play("Start")
+
+
+func _on_HurtBox_invincibility_finished():
+	animation_player.play("Stop")

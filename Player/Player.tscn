@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
+[ext_resource path="res://Shaders/White.gdshader" type="Shader" id=9]
+
+[sub_resource type="ShaderMaterial" id=54]
+shader = ExtResource( 9 )
+shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -825,22 +830,74 @@ height = 12.0
 radius = 5.0
 height = 8.0
 
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "Start"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 65
 script = ExtResource( 1 )
+INVINCIBLE = 0.6
 
 [node name="ShadowSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, 1 )
 texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 54 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
 hframes = 60
 frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = -1.5708
 shape = SubResource( 1 )
 
@@ -874,6 +931,7 @@ parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 
 [node name="SwordHitBox" parent="HitboxPivot" instance=ExtResource( 3 )]
@@ -887,6 +945,7 @@ shape = SubResource( 38 )
 disabled = true
 
 [node name="HurtBox" parent="." instance=ExtResource( 5 )]
+visible = false
 modulate = Color( 0.945098, 1, 0, 1 )
 collision_layer = 4
 
@@ -897,7 +956,14 @@ shape = SubResource( 52 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
+[node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 57 )
+anims/Start = SubResource( 55 )
+anims/Stop = SubResource( 56 )
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="invincibility_finished" from="HurtBox" to="." method="_on_HurtBox_invincibility_finished"]
+[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HitboxPivot/SwordHitBox"]
 [editable path="HurtBox"]
