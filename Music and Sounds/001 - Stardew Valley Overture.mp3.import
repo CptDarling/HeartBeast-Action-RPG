@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/001 - Stardew Valley Overture.mp3-c9e7167e89c0186fb1defb2ad0d66a84.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/001 - Stardew Valley Overture.mp3"
+dest_files=[ "res://.import/001 - Stardew Valley Overture.mp3-c9e7167e89c0186fb1defb2ad0d66a84.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
