@@ -885,7 +885,6 @@ script = ExtResource( 1 )
 INVINCIBLE = 0.6
 
 [node name="ShadowSprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, 1 )
 texture = ExtResource( 6 )
 
@@ -897,7 +896,6 @@ hframes = 60
 frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = -1.5708
 shape = SubResource( 1 )
 
@@ -931,7 +929,6 @@ parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
 
 [node name="SwordHitBox" parent="HitboxPivot" instance=ExtResource( 3 )]
@@ -945,7 +942,6 @@ shape = SubResource( 38 )
 disabled = true
 
 [node name="HurtBox" parent="." instance=ExtResource( 5 )]
-visible = false
 modulate = Color( 0.945098, 1, 0, 1 )
 collision_layer = 4
 

@@ -110,3 +110,7 @@ func _on_HurtBox_invincibility_started():
 
 func _on_HurtBox_invincibility_finished():
 	animation_player.play("Stop")
+
+
+func _on_SpawnDelayTimer_timeout():
+	$HitBox/CollisionShape2D.set_deferred("disabled", false)

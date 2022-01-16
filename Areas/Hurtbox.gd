@@ -19,7 +19,6 @@ func set_invincible(value):
 
 
 func start_invincibility(duration):
-	print("start_invincibility")
 	self.invincible = true
 	timer.start(duration)
 
@@ -32,15 +31,12 @@ func create_hit_effect():
 
 
 func _on_Timer_timeout():
-	print("_on_Timer_timeout")
 	self.invincible = false
 
 
 func _on_HurtBox_invincibility_started():
-	print("_on_HurtBox_invincibility_started")
 	collision_shape.set_deferred("disabled", true)
 
 
 func _on_HurtBox_invincibility_finished():
-	print("_on_HurtBox_invincibility_finished")
 	collision_shape.disabled = false
