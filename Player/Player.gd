@@ -103,3 +103,7 @@ func _on_HurtBox_area_entered(area):
 		hurtbox.create_hit_effect()
 		var player_hurt_sound = PlayerHurtSound.instance()
 		get_tree().current_scene.add_child(player_hurt_sound)
+
+
+func add_health(lives):
+	stats.max_health += lives
