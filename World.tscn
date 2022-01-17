@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Music and Sounds/001 - Stardew Valley Overture.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Pickups/HealthPickup.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World/Camera2D.tscn" type="PackedScene" id=13]
+[ext_resource path="res://UI/TouchUI.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1211,6 +1212,12 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 62.0
 margin_bottom = 13.0
+
+[node name="TouchUI" parent="CanvasLayer" instance=ExtResource( 14 )]
+margin_left = 6.0
+margin_top = 144.0
+margin_right = 38.0
+margin_bottom = 176.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
