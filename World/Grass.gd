@@ -23,4 +23,5 @@ func _on_Stats_no_health():
 		var bat = Bat.instance()
 		bat.global_position = global_position
 		get_tree().current_scene.get_node("YSort/Enemies").call_deferred("add_child", bat)
+	get_tree().current_scene.get_node("CanvasLayer/PlayerGoalUI").goal += 1
 	queue_free()
