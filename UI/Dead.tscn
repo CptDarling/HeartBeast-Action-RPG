@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Dead.gd" type="Script" id=1]
+
+[node name="Dead" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -342, -91 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 114.0
+margin_top = 38.0
+margin_right = 205.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 116.0
+margin_top = 41.0
+margin_right = 203.0
+margin_bottom = 77.0
+color = Color( 0.0588235, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 44.0
+margin_right = 320.0
+margin_bottom = 75.0
+text = "You died
+Game Over!"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Label"]
+margin_left = 121.0
+margin_top = 41.0
+margin_right = 196.0
+margin_bottom = 61.0
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_Button_pressed"]

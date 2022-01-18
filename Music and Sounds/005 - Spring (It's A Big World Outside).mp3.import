@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/005 - Spring (It's A Big World Outside).mp3-9ea584daee86e6fb653bf468a31a0015.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/005 - Spring (It's A Big World Outside).mp3"
+dest_files=[ "res://.import/005 - Spring (It's A Big World Outside).mp3-9ea584daee86e6fb653bf468a31a0015.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

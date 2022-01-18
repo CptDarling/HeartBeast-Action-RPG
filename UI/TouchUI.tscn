@@ -16,48 +16,55 @@ extents = Vector2( 30, 30 )
 
 [node name="TouchUI" type="Control"]
 margin_right = 320.0
-margin_bottom = 30.0
+margin_bottom = 72.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="LeftTouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 0, 10 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 5, 28 )
+scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 1 )
 shape = SubResource( 56 )
 action = "ui_left"
 visibility_mode = 1
 
 [node name="RightTouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 20, 10 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 44, 28 )
+scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 1 )
 shape = SubResource( 53 )
 action = "ui_right"
 visibility_mode = 1
 
 [node name="UpTouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 10, 0 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 25, 9 )
+scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 1 )
 shape = SubResource( 54 )
 action = "ui_up"
 visibility_mode = 1
 
 [node name="DownTouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 10, 20 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 24, 48 )
+scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 1 )
 shape = SubResource( 55 )
 action = "ui_down"
 visibility_mode = 1
 
 [node name="AttackTouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 288, 10 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 288, 48 )
+scale = Vector2( 0.3, 0.3 )
 normal = ExtResource( 1 )
 shape = SubResource( 55 )
 action = "attack"
+visibility_mode = 1
+
+[node name="RollTouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 288, 28 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 1 )
+shape = SubResource( 55 )
+action = "roll"
 visibility_mode = 1
