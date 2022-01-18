@@ -26,4 +26,5 @@ func set_health(value):
 		emit_signal("no_health")
 
 func reset():
+	max_health = original_health
 	health = original_health
