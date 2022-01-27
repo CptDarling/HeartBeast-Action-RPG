@@ -1,7 +1,7 @@
 extends Node2D
 
 const GrassEffect = preload("res://Effects/GrassEffect.tscn")
-const Bat = preload("res://Enemies/Bat.tscn")
+const Bat = preload("res://Mobs/Bat.tscn")
 
 export(float) var chance_of_bat = 0.5
 

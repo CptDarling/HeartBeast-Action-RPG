@@ -7,7 +7,7 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Mobs/Bat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Music and Sounds/005 - Spring (It's A Big World Outside).mp3" type="AudioStream" id=11]
